@@ -4,16 +4,15 @@
 
 ## 框架说明
 - [vue] https://cn.vuejs.org/
-- [mint-ui] http://mint-ui.github.io/#!/zh-cn
+- [vant] https://youzan.github.io/vant
 - [vuex] https://vuex.vuejs.org/zh/guide/
 - [axios] https://www.kancloud.cn/yunye/axios/234845
-- [rem布局] 1rem = 20px
+- [rem布局] postcss-pxtorem插件 + plugins/rem.js
 <!-- [rem布局] https://github.com/amfe/article/issues/17 (如设计图宽为375px,则设置1rem=37.5px) -->
 - [less] https://less.bootcss.com/
 - [Normalize.css] https://www.jianshu.com/p/9d7ff89757fd (CSS reset的替代方案)
 - [flex.css] https://github.com/lzxb/flex.css/blob/master/docs/zh-ch.md (移动端快速布局)
 - [vee-validate] https://baianat.github.io/vee-validate/examples/ (表单校验)
-- [autosize] 文本域高度自适应
 
 关于less
 - [混合引入]      @import '~@/assets/css/mixin.less';

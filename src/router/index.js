@@ -86,7 +86,7 @@ export default new Router({
       path: '/list/tab',
       name: 'ListTab',
       component: ListTab,
-      meta: { }
+      meta: { rank: 2 }
     },
     {
       path: '/demo/form',
