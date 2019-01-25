@@ -1,6 +1,110 @@
 <template>
   <div class="page-form">
-    <div class="g-form">
+    <div class="top">
+      <img :src="avatarurl" alt="" :onerror="defaultHeadImg" @click="clickFile">
+    </div>
+    <input type="file" id="fileInput" style="display: none;" @change="triggerFile($event)" ref="filePicker">
+
+    <van-cell-group>
+      <van-field
+        v-model="value"
+        placeholder="基础用法"
+      />
+
+      <van-field
+        v-model="username"
+        label="用户名"
+        placeholder=""
+        clearable
+        icon="question-o"
+        required
+        @click-icon="$toast('question')"
+      />
+      
+      <van-field
+        v-model="email"
+        label="邮箱"
+        placeholder=""
+        required
+      />
+
+      <van-field
+        v-model="password"
+        type="password"
+        label="密码"
+        placeholder=""
+        required
+      />
+
+      <van-field
+        value="输入框已禁用"
+        label="用户名"
+        left-icon="contact"
+        disabled
+      />
+
+      <van-field
+        v-model="username2"
+        label="用户名"
+        placeholder=""
+        error
+      />
+      <van-field
+        v-model="phone"
+        label="手机号"
+        placeholder=""
+        error-message="手机号格式错误"
+      />
+
+      <van-field
+        v-model="message"
+        label="高度自适应"
+        type="textarea"
+        placeholder=""
+        rows="1"
+        autosize
+      />
+
+      <van-field
+        center
+        clearable
+        v-model="sms"
+        label="短信验证码"
+        placeholder=""
+      >
+        <van-button
+          slot="button"
+          size="small"
+          type="primary"
+        >
+          发送验证码
+        </van-button>
+      </van-field>
+
+      <van-field
+        v-model="dateStr"
+        label="时间选择"
+        placeholder=""
+        disabled
+      />
+        <van-button type="primary" @click="openDatePicker">选择</van-button>
+      </van-field>
+
+      <van-popup v-model="showDate" position="bottom">
+        <van-datetime-picker
+          v-model="currentDate"
+          type="date"
+          :min-date="minDate"
+          :max-date="maxDate"
+          :formatter="formatter"
+          @cancel="showDate=false"
+          @confirm="onConfirm"
+        />
+      </van-popup>
+
+    </van-cell-group>
+
+    <!-- <div class="g-form">
       <div class="top">
         <img :src="avatarurl" alt="" :onerror="defaultHeadImg" @click="clickFile">
       </div>
@@ -94,28 +198,45 @@
       :startDate="startDate">
     </mt-datetime-picker>
 
-    <input type="file" id="fileInput" style="display: none;" @change="triggerFile($event)" ref="filePicker">
+    <input type="file" id="fileInput" style="display: none;" @change="triggerFile($event)" ref="filePicker"> -->
   </div>
 </template>
 
 <script>
 // import Autosize from 'autosize' // 文本域高度自适应
-// import moment from 'moment'
+import moment from 'moment'
 export default {
   data() {
     return {
       defaultHeadImg: this.$store.getters.defaultHeadImg,
-      
       avatarurl: '',  // 头像
-      mytime: "",
-      startDate: new Date(new Date().getTime() + 24*60*60*1000),
-      name: '',
+
+      value: '',
+      username: '',
       email: '',
       password: '',
+      username2: '',
       phone: '',
-      birthday: '',
+      message: '',
+      sms: '',
 
-      handler:function(e){e.preventDefault();},
+      dateStr: '',
+      showDate: false,
+      minDate: new Date(),
+      maxDate: new Date(2023, 10, 1),
+      currentDate: new Date(),
+
+
+      
+      // mytime: "",
+      // startDate: new Date(new Date().getTime() + 24*60*60*1000),
+      // name: '',
+      // email: '',
+      // password: '',
+      // phone: '',
+      // birthday: '',
+
+      // handler:function(e){e.preventDefault();},
     }
   },
   methods: {
@@ -146,69 +267,46 @@ export default {
         data: formData
       }).then((response)=>{
         if(response.data.success==1) {
-          vm.avatarurl = response.data.data;
+          vm.avatarurl = response.data.data
         } else if (response.data.success==999) {
-          this.$common.confirmLogin();
+          this.$common.confirmLogin()
         } else {
-          Toast({
-            message: response.data.data || '接口异常',
-            position: 'bottom'
-          });
+          this.$toast(response.data.data || '接口异常')
         }
       });
     },
     // 打开时间选择器
-    openPicker() {
-      this.$refs.picker.open();
-
-      this.closeTouch();//关闭默认事件
+    openDatePicker() {
+      this.showDate = true
     },
-    handleConfirm(data) {
-      this.openTouch();//打开默认事件
-
-      // this.birthday = moment(data).format('YYYY/MM/DD');
+    onConfirm() {
+      this.showDate = false
+      this.dateStr = moment(this.currentDate).format('YYYY/MM/DD')
     },
-
-    // 高度自适应
-    updateAutosize() {
-      // Autosize.update(this.$refs.textarea)
-    },
-    bindAutosize() {
-      // Autosize(this.$refs.textarea)
-    },
-    unbindAutosize() {
-      // Autosize.destroy(this.$refs.textarea)
-    },
-
-    /*解决iphone页面层级相互影响滑动的问题*/
-    closeTouch() {
-      document.getElementsByTagName("body")[0].addEventListener('touchmove',
-        this.handler, { passive: false} ); //阻止默认事件
-    },
-    openTouch() {
-      document.getElementsByTagName("body")[0].removeEventListener('touchmove',
-        this.handler, { passive: false} ); //打开默认事件
-    },
-  },
-  mounted() {
-    this.bindAutosize()
-  },
-  beforeDestroy () {
-    this.unbindAutosize()
+    formatter(type, value) {
+  　　if (type === 'year') {
+    　　return `${value}年`;
+  　　} else if (type === 'month') {
+  　　  return `${value}月`
+  　　} else if (type === 'day') {
+    　　return `${value}日`
+  　　} 
+  　　return value;
+　　},
   }
 }
 </script>
 
 <style lang="less" scoped>
-  @import '~@/assets/css/form.less';
+  // @import '~@/assets/css/form.less';
 
   .top {
-    width: 5rem;
+    width: 100px;
     margin: auto;
-    padding: 1.5rem 0;
+    padding: 30px 0;
     img {
-      width: 5rem;
-      height: 5rem;
+      width: 100px;
+      height: 100px;
       border-radius: 100%;
     }
   }

@@ -7,7 +7,7 @@ import 'babel-polyfill'
 
 import Vant from 'vant'
 import { Lazyload } from 'vant';
-import 'vant/lib/index.css'
+
 
 import fastClick from "fastclick"
 import '@/plugins/rem'

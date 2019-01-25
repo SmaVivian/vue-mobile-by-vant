@@ -20,8 +20,9 @@ export default {
 </script>
 
 <style lang="less">
-  @import '~@/assets/css/theme.less';
-  @import '~@/assets/css/resetCmp.less';
   @import 'normalize.css';
   @import 'flex.css';
+  @import 'vant/lib/index.css';
+  @import '~@/assets/css/theme.less';
+  @import '~@/assets/css/resetCmp.less';
 </style>

@@ -1,5 +1,5 @@
 import axios from 'axios'
-// import { Indicator, Toast } from 'mint-ui';
+import { Toast } from 'vant'
 // import store from '@/store'
 // import { getToken } from '@/utils/auth'
 
@@ -65,10 +65,7 @@ service.interceptors.response.use(
   // },
   error => {
     console.log('err' + error) // for debug
-    Toast({
-      message: error.message,
-      position: 'bottom'
-    });
+    Toast(error.message)
     return Promise.reject(error)
   }
 )
@@ -78,11 +75,11 @@ const request = {
     return service.request(config)
   },
   get: (url, params) => {
-    return service.get(url, {params: params});
+    return service.get(url, {params: params})
   },
   post: (url, params) => {
-    return service.post(url, params);
+    return service.post(url, params)
   }
 }
 
-export default request;
+export default request
