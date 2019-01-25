@@ -37,17 +37,11 @@ const user = {
             Cookies.set('userid', res.data.data.id);
             resolve();
           }else{
-            Toast({
-              message: res.data.data.tipMessage,
-              position: 'bottom'
-            });
+            this._vm.$toast(res.data.data.tipMessage);
             reject();
           }
         }, error => {
-          Toast({
-            message: '服务器异常',
-            position: 'bottom'
-          });
+          this._vm.$toast('服务器异常');
           reject(error);
         })
       })

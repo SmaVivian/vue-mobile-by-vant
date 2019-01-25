@@ -88,36 +88,35 @@ export default {
   .page-login {
     width: 100%;
     height: 100%;
-    padding: 2.51rem 0.96rem;
+    padding: 50px 20px;
     background-size: cover;
     color: #666;
     font-size: 16px;
     font-weight:400;
     .login {
       .logo {
-        margin: 1rem auto 2rem;
+        margin: 20px auto 40px;
         img {
-          width: 4.6rem;
-          height: 3.25rem;
+          width: 92px;
+          height: 64px;
         }
       }
       .item-wrap {
-        padding: 0 1rem;
-        height:2.2rem;
+        padding: 0 20px;
+        height: 44px;
         background:rgba(241,241,241,1);
-        border-radius: 1.1rem;
+        border-radius: 22px;
         .icon-person {
-          #f-bg(.6rem, .7rem, "../images/demo/icon-person.png");
+          #f-bg(12px, 14px, "../images/demo/icon-person.png");
         }
         .icon-pass {
-          #f-bg(.6rem, .7rem, "../images/demo/icon-pass.png");
+          #f-bg(12px, 14px, "../images/demo/icon-pass.png");
         }
         input {
-          margin-left: .5rem;
+          margin-left: 10px;
           display: inline-block;
-          // font-size: .65rem;
           font-size: 16px;
-          line-height: 1.2rem;
+          line-height: 24px;
           background: transparent;
           color: #666;
           &::-webkit-input-placeholder {
@@ -132,15 +131,15 @@ export default {
         }
       }
       .item-password {
-        margin-top: 1rem;
+        margin-top: 20px;
       }
       .other-wrap {
-        margin-top: 0.29rem;
+        margin-top: 5px;
         i {
           display: inline-block;
-          width: 0.37rem;
-          height: 0.37rem;
-          margin-right: 0.1rem;
+          width: 75px;
+          height: 75px;
+          margin-right: 2px;
           background-size: contain;
           &.icon-sel-no {
             background-size: contain;
@@ -151,35 +150,35 @@ export default {
     .submit {
       width: 100%;
       text-align: center;
-      margin-top: 2.2rem;
-      height:2.2rem;
-      line-height: 2.2rem;
+      margin-top: 44px;
+      height:44px;
+      line-height: 44px;
       background: #999;
-      border-radius:1.1rem;
+      border-radius: 22px;
       color: #fff;
-      font-size: .8rem;
+      font-size: 16px;
       &.enable {
         background:linear-gradient(126deg,rgba(72,165,255,1) 0%,rgba(129,226,255,1) 100%);
       }
     }
     .other-way {
-      margin-top: 2rem;
+      margin-top: 40px;
       .line {
         display: inline-block;
-        width: 1.5rem;
+        width: 30px;
         height: 0;
         border-top: solid 1px #666;
       }
       .des {
-        margin: 0 0.26rem;
+        margin: 0 5px;
       }
       .icon-box {
-        margin-top: 1rem;
-        width: 4.7rem;
+        margin-top: 20px;
+        width: 90px;
         i {
           display: inline-block;
-          width: 1.6rem;
-          height: 1.6rem;
+          width: 32px;
+          height: 32px;
         }
         .icon-wechat {
           // #f-bg-url("../images/demo/icon-wechat.png");
