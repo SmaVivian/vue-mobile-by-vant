@@ -1,0 +1,180 @@
+@import 'mixin.less';
+body,
+div,
+span,
+header,
+footer,
+nav,
+section,
+aside,
+article,
+ul,
+dl,
+dt,
+dd,
+li,
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+i,
+b,
+textarea,
+button,
+input,
+select,
+figure,
+figcaption,
+{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-style: normal;
+  text-decoration: none;
+  border: none;
+  font-weight: normal;
+  font-family: "Microsoft Yahei";
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  &:hover {
+    outline: none;
+  }
+}
+
+html,
+body,
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  height: 100%;
+  width: 100%; // background-color: #F5F5F5;
+  background: #fff;
+}
+
+img {
+  object-fit: cover;
+}
+
+#app {
+  // min-width: 10rem;
+  // max-width: 10rem;
+  // margin: 0 auto;
+  // position: relative;
+  // background: #fff;
+}
+
+.ell {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.two-ell {
+	overflow: hidden;
+	text-overflow: ellipsis;
+  display: -webkit-box;
+  /*! autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+  -webkit-line-clamp: 2;
+}
+
+.clearfix:after,.clearfix:before{
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.g-title {
+  margin-bottom: 20px;
+  h1 {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
+    color: #282828;
+  }
+  span {
+    font-size: 14px;
+    font-weight: 400;
+    color: #B9B9B9;
+    line-height: 18px;
+  }
+}
+
+.g-icon-more:after {
+  content: " ";
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-width: 2px 2px 0 0;
+  border-color: #C8C8CD;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: relative;
+  top: -2px;
+  position: absolute;
+  top: 50%;
+  margin-top: -4px;
+  right: 2px;
+}
+
+// 加载更多
+// .g-loading-text{
+//   width:100%;
+//   text-align: center;
+//   // height: 0.5rem;
+//   padding-top: 0.8rem;
+//   .mint-spinner-snake {
+//     position: relative;
+//     top: -.2rem;
+//   }
+//   span{
+//     display: inline-block;
+//   }
+//   .text{
+//     transform: translate(8px,-6px);
+//     font-size:0.75rem;
+//     color:rgba(78,77,77,1);
+//   }
+// }
+
+// 下拉刷新
+// .mint-loadmore-top {
+//   color:rgba(78,77,77,1);
+//   font-size: .75rem;
+// }
+
+.g-no-data {
+  .no-data-bg {
+    width: 100%;
+    height: 135px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%,-50%);
+    background: url(~@images/no-data.svg) center center no-repeat;
+    background-size: contain;
+  }
+  .no-data-txt {
+    color: #444;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: center;
+  }
+}
+
+.icon-more {
+  display: inline-block;
+  width: 6px;
+  height: 7px;
+  // background: url(../../assets/images/icon/jiantou_you.svg) top center no-repeat;
+  background-size: contain;
+}
