@@ -9,6 +9,10 @@
       <van-field
         v-model="value"
         placeholder="基础用法"
+        name="value"
+        v-validate="'required|max:5'"
+        :error="errors.has('value')"
+        :error-message="errors.first('value')"
       />
 
       <van-field
@@ -17,7 +21,6 @@
         placeholder=""
         clearable
         icon="question-o"
-        required
         @click-icon="$toast('question')"
       />
       
@@ -26,6 +29,10 @@
         label="邮箱"
         placeholder=""
         required
+        name="email"
+        v-validate="'required|email'"
+        :error="errors.has('email')"
+        :error-message="errors.first('email')"
       />
 
       <van-field
@@ -34,6 +41,10 @@
         label="密码"
         placeholder=""
         required
+        name="password"
+        v-validate="'required|password'"
+        :error="errors.has('password')"
+        :error-message="errors.first('password')"
       />
 
       <van-field
@@ -46,14 +57,19 @@
       <van-field
         v-model="username2"
         label="用户名"
-        placeholder=""
+        placeholder="请输入用户名"
         error
+        required
       />
       <van-field
         v-model="phone"
         label="手机号"
-        placeholder=""
-        error-message="手机号格式错误"
+        placeholder="请输入手机号"
+        required
+        name="phone"
+        v-validate="'required|phone'"
+        :error="errors.has('phone')"
+        :error-message="errors.first('phone')"
       />
 
       <van-field
@@ -70,25 +86,31 @@
         clearable
         v-model="sms"
         label="短信验证码"
-        placeholder=""
-      >
+        placeholder="">
         <van-button
           slot="button"
           size="small"
-          type="primary"
-        >
+          type="primary">
           发送验证码
         </van-button>
       </van-field>
 
       <van-field
+        center
         v-model="dateStr"
         label="时间选择"
         placeholder=""
-        disabled
-      />
-        <van-button type="primary" @click="openDatePicker">选择</van-button>
+        disabled>
+        <van-button
+          slot="button"
+          size="small"
+          type="primary"
+          @click="openDatePicker">
+          选择
+        </van-button>
       </van-field>
+
+      <van-button type="primary" @click="save">保存</van-button>
 
       <van-popup v-model="showDate" position="bottom">
         <van-datetime-picker
@@ -103,107 +125,10 @@
       </van-popup>
 
     </van-cell-group>
-
-    <!-- <div class="g-form">
-      <div class="top">
-        <img :src="avatarurl" alt="" :onerror="defaultHeadImg" @click="clickFile">
-      </div>
-
-      <div class="m-form-col">
-        <div class="control">
-          <label class="label">详情</label>
-          <i class="g-icon-more"></i>
-        </div>
-      </div>
-
-      <div class="m-form-col">
-        <div class="title">邮箱验证</div>
-        <div class="control">
-          <label class="label">邮箱</label>
-          <input name="email" type="text" placeholder=""
-            v-model="email" 
-            v-validate="'required|email'" 
-            class="border"
-            :class="{'input': true, 'is-danger': errors.has('email') }">
-          <i v-show="email" class="clear" @click="email=''">×</i>
-          <i class="g-icon-more"></i>
-        </div>
-        <div v-show="errors.has('email')" class="help">{{ errors.first('email') }}</div>
-      </div>
-
-      <div class="m-form-col">
-        <div class="title">账户</div>
-        <div class="control">
-          <label class="label">账户</label>
-          <input name="name" type="text" placeholder=""
-            v-model="name" 
-            v-validate="'required|min:3|alpha'" 
-            class="border"
-            :class="{'input': true, 'is-danger': errors.has('name') }">
-          <i v-show="name" class="clear" @click="name=''">×</i>
-        </div>
-        <div v-show="errors.has('name')" class="help">{{ errors.first('name') }}</div>
-      </div>
-
-      <div class="m-form-col">
-        <div class="control">
-          <label class="label">密码</label>
-          <input v-model="password"  v-validate="'required|min:6'" type="password" name="password">
-          <i v-show="password" class="clear" @click="password=''">×</i>
-        </div>
-        <div v-show="errors.has('password')" class="help">{{ errors.first('password') }}</div>
-      </div>
-
-      <div class="m-form-col">
-        <div class="control">
-          <label class="label">手机号</label>
-          <input v-model="phone" v-validate="'required|phone'" type="text" name="phone">
-          <i v-show="phone" class="clear" @click="phone=''">×</i>
-        </div>
-        <div v-show="errors.has('phone')" class="help">{{ errors.first('phone') }}</div>
-      </div>
-
-      <div class="m-form-col">
-        <div class="control">
-          <label class="label">生日</label>
-          <span class="tri-name" @click="openPicker">{{birthday ? birthday : '请选择时间'}}</span>
-          <i class="g-icon-more"></i>
-        </div>
-      </div>
-
-      <div class="m-form-col">
-        <div class="control t-area">
-          <label class="label">文本域</label>
-          <textarea name="" id="" cols="30" rows="5" ref="textarea"></textarea>
-        </div>
-      </div>
-
-      <div class="m-form-col">
-        <div class="control t-area">
-          <label class="label">自适应高</label>
-          <textarea name="" id="" cols="30" rows="1" ref="textarea"></textarea>
-        </div>
-      </div>
-    </div>
-
-    <mt-datetime-picker
-      type="date"
-      ref="picker"
-      v-model="mytime"
-      year-format="{value}年"
-      month-format="{value}月"
-      date-format="{value}日"
-      @confirm="handleConfirm"
-      confirmText="确定"
-      :startDate="startDate">
-    </mt-datetime-picker>
-
-    <input type="file" id="fileInput" style="display: none;" @change="triggerFile($event)" ref="filePicker"> -->
   </div>
 </template>
 
 <script>
-// import Autosize from 'autosize' // 文本域高度自适应
 import moment from 'moment'
 export default {
   data() {
@@ -224,19 +149,7 @@ export default {
       showDate: false,
       minDate: new Date(),
       maxDate: new Date(2023, 10, 1),
-      currentDate: new Date(),
-
-
-      
-      // mytime: "",
-      // startDate: new Date(new Date().getTime() + 24*60*60*1000),
-      // name: '',
-      // email: '',
-      // password: '',
-      // phone: '',
-      // birthday: '',
-
-      // handler:function(e){e.preventDefault();},
+      currentDate: new Date()
     }
   },
   methods: {
@@ -293,13 +206,19 @@ export default {
   　　} 
   　　return value;
 　　},
+    save() {
+      this.$validator.validateAll().then((result) => {
+        console.log(result)
+        if(result){
+          // ...
+        }
+      })
+    }
   }
 }
 </script>
 
 <style lang="less" scoped>
-  // @import '~@/assets/css/form.less';
-
   .top {
     width: 100px;
     margin: auto;

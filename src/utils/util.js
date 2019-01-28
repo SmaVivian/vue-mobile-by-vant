@@ -8,7 +8,7 @@
 export const validate = (str, type) => {
   let isMatch = false,
     isMobile = /^1[3578]\d{9}$|^147\d{8}$/,
-    ispass = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/;
+    ispass = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/;  // 6至10位登录密码，至少包含一位数字和字母
 
   switch(type) {
     case 'phone':

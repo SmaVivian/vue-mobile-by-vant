@@ -29,3 +29,10 @@ Validator.extend('phone', {
     return value.length == 11 && /^((13|14|15|17|18)[0-9]{1}\d{8})$/.test(value)
   }
 });
+
+Validator.extend('password', {
+  getMessage: field => field + '为6至10位登录密码，至少包含一位数字和字母',
+  validate: value => {
+    return /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/.test(value)
+  }
+});
