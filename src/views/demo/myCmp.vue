@@ -118,9 +118,9 @@ export default {
   }
 
   .page-my-cmp {
-    font-size: .75rem;
+    font-size: 16px;
     color: #666;
-    line-height: 1.5rem;
+    line-height: 30px;
   }
 </style>
 

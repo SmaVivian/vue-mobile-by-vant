@@ -97,10 +97,10 @@ export default {
 	background: url('~@assets/images/cmp/shoucang.png') center center no-repeat;
 	background-size: 100%;
 	position: absolute;
-  width: 1.14rem;
-  height: .98rem;
-  top: 0.31rem;
-  right: 0.31rem;
+  width: 22px;
+  height: 20px;
+  top: 6px;
+  right: 6px;
 	z-index: 2;
 }
 
