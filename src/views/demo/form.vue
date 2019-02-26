@@ -129,7 +129,7 @@
 </template>
 
 <script>
-import moment from 'moment'
+import { parseTime } from '@/utils/util'
 export default {
   data() {
     return {
@@ -194,7 +194,7 @@ export default {
     },
     onConfirm() {
       this.showDate = false
-      this.dateStr = moment(this.currentDate).format('YYYY/MM/DD')
+      this.dateStr = parseTime(this.currentDate, '{y}/{m}/{d}')
     },
     formatter(type, value) {
   　　if (type === 'year') {
