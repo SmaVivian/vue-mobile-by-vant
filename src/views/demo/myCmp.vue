@@ -31,9 +31,9 @@
 </template>
 
 <script>
-import myCmpLike from '@/components/MyLike'
-import myCountDown from '@/components/MyCountDown'
-import myCmpMarquee from '@/components/MyMarquee'
+import myCmpLike from '@cmp/MyLike'
+import myCountDown from '@cmp/MyCountDown'
+import myCmpMarquee from '@cmp/MyMarquee'
 export default {
   components: {
     myCmpLike,

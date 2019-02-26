@@ -9,7 +9,6 @@
     <div>
       这里是首页 <span>用户状态：{{aaa}}</span>
       <van-button type="default" size="small" @click="handleClick">默认按钮</van-button>
-      <HelloWorld></HelloWorld>
     </div>
     
   </div>
@@ -33,11 +32,7 @@
 </style>
 
 <script>
-import HelloWorld from "@cmp/HelloWorld"
 export default {
-  components: {
-    HelloWorld
-  },
   data() {
     return {}
   },

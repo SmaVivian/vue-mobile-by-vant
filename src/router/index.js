@@ -1,17 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Demo from '@views/demo/index'
-import DemoList from '@views/demo/demoList'
-import ListInfinite from '@views/demo/listInfinite'   // 列表无限加载
-import ListPullDown from '@views/demo/listPullDown'   // 列表下拉刷新无限加载
-import ListPullDownDetail from '@views/demo/listPullDownDetail'   // 列表详情
-import ListTab from '@views/demo/listTab'   // 列表下拉刷新无限加载
-import DemoForm from '@views/demo/form'   // 表单
-import DemoLogin from '@views/demo/login'   // 登录
-import DemoMyCmp from '@views/demo/myCmp'   // 自定义组件
-import DemoSwiper from '@views/demo/mySwiper'   // 自定义组件
-import DemoSwiper4 from '@views/demo/mySwiper4'   // 自定义组件
-// import HelloWorld from '@cmp/HelloWorld'
 
 Vue.use(Router)
 
@@ -53,71 +41,65 @@ export default new Router({
     {
       path: '/',
       name: 'Demo',
-      component: Demo,
+      component: () => import('@/views/demo/index'),
       meta: { }
     },
     {
       path: '/demo',
       name: 'DemoList',
-      component: DemoList,
+      component: () => import('@/views/demo/demoList'),
       meta: {rank: 1 }
     },
     {
       path: '/list/infinite',
       name: 'ListInfinite',
-      component: ListInfinite,
+      component: () => import('@/views/demo/listInfinite'),
       meta: {rank: 2 }
     },
     // 缓存组件示例start
     {
       path: '/list/pulldown',
       name: 'ListPullDown',
-      component: ListPullDown,
+      component: () => import('@/views/demo/listPullDown'),
       meta: {rank: 2 }
     },
     {
       path: '/list/pulldown/detail',
       name: 'ListPullDownDetail',
-      component: ListPullDownDetail,
+      component: () => import('@/views/demo/listPullDownDetail'),
       meta: {rank: 3 }
     },
     // 缓存组件示例end
     {
       path: '/list/tab',
       name: 'ListTab',
-      component: ListTab,
+      component: () => import('@/views/demo/listTab'),
       meta: { rank: 2 }
     },
     {
       path: '/demo/form',
       name: 'DemoForm',
-      component: DemoForm,
+      component: () => import('@/views/demo/form'),
       meta: { }
     },
     {
       path: '/demo/login',
       name: 'DemoLogin',
-      component: DemoLogin,
+      component: () => import('@/views/demo/login'),
       meta: { }
     },
     {
       path: '/demo/myCmp',
       name: 'DemoMyCmp',
-      component: DemoMyCmp,
+      component: () => import('@/views/demo/myCmp'),
       meta: { }
     },
     {
       path: '/demo/swiper',
       name: 'DemoSwiper',
-      component: DemoSwiper,
+      component: () => import('@/views/demo/mySwiper'),
       meta: { }
-    },
-    {
-      path: '/demo/swiper4',
-      name: 'DemoSwiper4',
-      component: DemoSwiper4,
-      meta: { }
-    },
+    }
     // {
     //   path: '/',
     //   name: 'HelloWorld',

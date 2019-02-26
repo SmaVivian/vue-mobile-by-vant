@@ -15,8 +15,8 @@ import store from '@/store'
 import Cookies from 'js-cookie'
 import {common} from '@/utils/common'
 import '@/utils/filters'
-import request from './utils/request'
-import './utils/validate'
+import request from '@/utils/request'
+import '@/utils/validate'
 
 
 fastClick.attach(document.body)
