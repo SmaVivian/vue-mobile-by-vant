@@ -2,6 +2,25 @@
 
 > [vue-mobile-by-vant]主要实现移动端H5页面一些基础的业务代码，基于 [vue](https://github.com/vuejs/vue) 和 [vant](https://youzan.github.io/vant/#/zh-CN/intro)实现。
 
+## 功能
+
+- 登录
+
+- 列表
+  - 无限加载
+  - 列表下拉刷+图片懒加载
+  - tab列表
+
+- 详情
+
+- 表单
+
+- 自定义组件（收藏、计数器、Marquee跑马灯）
+
+- 轮播
+
+- 组件缓存（`keep-alive`向前清除缓存、返回不清除缓存）首页->列表->详情：清除缓存  详情->列表：不清除缓存 
+
 ## 框架说明
 - [vue] https://cn.vuejs.org/
 - [vant] https://youzan.github.io/vant
