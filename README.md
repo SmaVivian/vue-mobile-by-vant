@@ -1,6 +1,6 @@
-# mobile-project
+# vue-mobile-by-vant
 
-> a vue mobile project
+> [vue-mobile-by-vant]主要实现移动端H5页面一些基础的业务代码，基于 [vue](https://github.com/vuejs/vue) 和 [vant](https://youzan.github.io/vant/#/zh-CN/intro)实现。
 
 ## 框架说明
 - [vue] https://cn.vuejs.org/
@@ -18,20 +18,18 @@
 - [混合引入]      @import '~@/assets/css/mixin.less';
 - [图片路径引入]  "~@images/demo/icon-qq.png"
 
-## Build Setup
+## 效果演示
 
-``` bash
-# install dependencies
-npm install
+![img](https://github.com/SmaVivian/vue-mobile-by-vant/blob/master/src/assets/vueVant.gif)
 
-# serve with hot reload at localhost:8080
+## 安装依赖
+
+npm i
+
+## 项目启动
+
 npm run dev
 
-# build for production with minification
+## 项目打包
+
 npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

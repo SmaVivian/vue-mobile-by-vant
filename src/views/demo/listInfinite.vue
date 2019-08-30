@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     onLoad() {
-      this.$common.confirmLogin()  // 测试登录超时弹框
+      // this.$common.confirmLogin()  // 测试登录超时弹框
 
       this.currentPage++
       this.getData()
