@@ -20,7 +20,7 @@
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
     "normalize.css": "^8.0.0",
-    "vant": "^1.5.6",
+    "vant": "^2.2.14",
     "vee-validate": "^2.1.4",
     "vue": "^2.5.2",
     "vue-awesome-swiper": "^3.1.3",
